@@ -1,0 +1,169 @@
+<div class="container col-sm-12 col-md-10 col-lg-8 mt-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card shadow-lg px-4 pt-4 pb-2 bg-white rounded">
+        <div class="card-body">
+          <!--------------------------------Form  Starts Here -------------------------------------------------------------->
+          <form #mobileForm="ngForm" (ngSubmit)="onSubmit(mobileForm)">
+            <!--------------------------------1st row starts Here splitting into grid 6 -------------------------------------->
+            <input
+              type="hidden"
+              name="_id"
+              #_id="ngModel"
+              [(ngModel)]="mobiledataService.selectedMobiledata._id"
+            />
+            <div class="row">
+              <!-- First name -->
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="brand"><strong> Brand Name </strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="brand"
+                    #name="ngModel"
+                    required
+                    [(ngModel)]="mobiledataService.selectedMobiledata.brand"
+                  />
+                </div>
+              </div>
+
+              <!-- Last name -->
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="phone_name"><strong>Phone Name</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone_name"
+                    #name="ngModel"
+                    [(ngModel)]="
+                      mobiledataService.selectedMobiledata.phone_name
+                    "
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <!--------------------------------------1st row ENDS Here ----------------------------------------------------------->
+
+            <!----------------------------------------------------2nd row Starts here ----------------------------------------------->
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="phone_price"><strong>Phone Price</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone_price"
+                    required
+                    #name="ngModel"
+                    [(ngModel)]="
+                      mobiledataService.selectedMobiledata.phone_price
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group">
+                  <label for="phone_color"><strong>Phone Colour</strong></label>
+                  <input
+                    type="text"
+                    name="phone_color"
+                    class="form-control"
+                    required
+                    #name="ngModel"
+                    [(ngModel)]="
+                      mobiledataService.selectedMobiledata.phone_color
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+            <!----------------------------------------------------2nd row Ends here -------------------------------------------------->
+            <!-- 2nd row Starts here -->
+            <div class="row">
+              <!-- Address -->
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="phone_img_url"><strong>Image URL</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone_img_url"
+                    #name="ngModel"
+                    [(ngModel)]="
+                      mobiledataService.selectedMobiledata.phone_img_url
+                    "
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <!---------------------------------------------------- 2nd row ENDS Here---------------------------------------------->
+            <div class="form-group text-center mt-3">
+              <button
+                class="btn btncolor"
+                type="submit"
+                [disabled]="!mobileForm.valid"
+              >
+                <strong>Submit</strong>
+              </button>
+              <button
+                class="btn btncolor btnleft"
+                (click)="resetForm(mobileForm)"
+                type="button"
+              >
+                <strong>Reset</strong>
+              </button>
+            </div>
+          </form>
+          <!-------------------------------------------------  Form ENDS here  ------------------------------------------------------>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------------------------------------------ Table starts here ------------------------------------------------------->
+<div class="container-fluid mt-5">
+  <h2 class="titleText mb-4"><span>M</span>obile List from MongoDB</h2>
+
+  <div class="table-responsive">
+    <table class="table table-bordered text-center" id="tabledata">
+      <thead class="text-center thead-dark">
+        <tr>
+          <th>Brand Name</th>
+          <th>Phone Name</th>
+          <th>Image URL</th>
+          <th>Phone Colour</th>
+          <th>Phone Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody">
+        <tr *ngFor="let mobile of mobiledataService.mobiledatas">
+          <td>{{ mobile.brand }}</td>
+          <td>{{ mobile.phone_name }}</td>
+          <td class="d-flex justify-content-center">
+            <img src="{{ mobile.phone_img_url }}" alt="" />
+          </td>
+          <td>{{ mobile.phone_color }}</td>
+          <td>{{ mobile.phone_price }}</td>
+          <td>
+            <a class="action-btn" (click)="onEdit(mobile)">
+              <i class="fa fa-pencil-square edit_icon" aria-hidden="true"></i>
+            </a>
+
+            <a class="action-btn" (click)="onDelete(mobile._id, mobileForm)">
+              <i class="fa fa-trash delete_icon" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-------------------------------------------------- Table Ends here ---------------------------------------------------------->
+  </div>
+</div>

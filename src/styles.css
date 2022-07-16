@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap");
+span {
+  font-size: 25px;
+}
+.title {
+  text-align: center;
+}
+
+.titleText {
+  font-size: 30px;
+  font-weight: 400;
+  color: #111;
+}
+
+.titleText span {
+  position: relative;
+  color: #db1038;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+th {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.bg-white {
+  border-radius: 1.25rem !important;
+}
+
+.btncolor {
+  border: 2px solid #2eb481;
+  background-color: #f8c630;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.btncolor:hover {
+  background-color: #f1f1f1;
+  border: 2px solid #2eb481;
+  color: black;
+}
+
+@media (max-width: 400px) {
+  .titleText {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #111;
+  }
+
+  .titleText span {
+    position: relative;
+
+    font-size: 1em;
+    font-weight: 700;
+  }
+}
+
+input {
+  text-transform: capitalize;
+}
+input[type="text"]:focus {
+  border: 1px solid #62466b;
+}
+@media (max-width: 789px) {
+  .container-nav a {
+    width: 150px;
+    height: 40px;
+  }
+
+  .container-nav a span {
+    font-size: 32px;
+  }
+}
+
+.btncolor {
+  border: 2px solid #f8c630;
+  background-color: #f8c630;
+  color: #fff;
+  color: #111;
+  font-size: 20px;
+  transition: 0.5s;
+  padding: 5px 45px;
+  outline: none;
+}
+
+.btncolor:hover {
+  background-color: #f1f1f1;
+  border: 2px solid #62466b;
+  color: black;
+  outline: none;
+}
+
+.bg-white {
+  border-radius: 1.25rem !important;
+}
+
+.form-control {
+  color: #62466b;
+}
+label {
+  font-size: 15px;
+  font-weight: 500;
+}
+.edit_icon {
+  font-size: 30px;
+  color: #066e04;
+  cursor: pointer;
+}
+.delete_icon {
+  font-size: 30px;
+  margin-left: 5px;
+  color: #ff0157;
+  cursor: pointer;
+}
+td img {
+  width: 80px;
+}
+td {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 17px;
+}
+table tr:hover {
+  transition: 0.5s;
+  background-color: #e8e8e8;
+}
+.btnleft {
+  margin-left: 30px;
+}
+@media (max-width: 760px) {
+  .btncolor {
+    font-size: 16px;
+    width: 100%;
+  }
+  .btnleft {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+}
+
+footer {
+  position: relative;
+  background-color: #111;
+  bottom: 0;
+  color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p {
+  padding-top: 10px;
+  font-weight: 800;
+  font-size: 16px;
+}
+footer span {
+  color: #2eb481;
+  font-size: 18px;
+  margin: 10px 0 0 5px;
+}
